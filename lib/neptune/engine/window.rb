@@ -4,13 +4,14 @@ require 'gosu'
 
 module Engine
   class Window < Gosu::Window
-    attr_reader :width, :height, :args
+    attr_reader :width, :height, :caption
 
-    def initialize(width, height, *args)
+    def initialize(height:, width:, caption:)
       @width = width
       @height = height
-      @args = args
-      super(width, height, *args)
+      @caption = caption
+      super(width, height)
+      self.caption = @caption
     end
   end
 end

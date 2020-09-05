@@ -6,9 +6,9 @@ RSpec.describe Engine::Window do
   describe '#initialize' do
     let(:width) { 600 }
     let(:height) { 480 }
-    let(:args) { [{ fullscreen: true }] }
+    let(:caption) { 'Super Neptune v0.0.0' }
 
-    subject { Engine::Window.new(width, height, *args) }
+    subject { Engine::Window.new(height: height, width: width, caption: caption) }
 
     it 'should create a window' do
       expect(subject).not_to be_nil
@@ -22,8 +22,8 @@ RSpec.describe Engine::Window do
       expect(subject.height).to eq height
     end
 
-    it 'should set the args' do
-      expect(subject.args).to eq args
+    it 'should set the caption' do
+      expect(subject.caption).to eq caption
     end
   end
 end
