@@ -2,12 +2,14 @@ PATH
   remote: .
   specs:
     neptune (0.1.0)
+      gosu (~> 0.15)
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.1)
     diff-lcs (1.4.4)
+    gosu (0.15.2)
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
