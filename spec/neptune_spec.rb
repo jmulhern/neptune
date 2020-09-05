@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe Neptune do
-
   subject { Neptune }
 
   it 'has a version number' do

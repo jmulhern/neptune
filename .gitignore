@@ -6,6 +6,12 @@
 /pkg/
 /spec/reports/
 /tmp/
+/assets
+!/assets/images/.keep
+!/assets/music/.keep
+!/assets/sounds/.keep
+
+.env
 
 # rspec failure tracking
 .rspec_status
