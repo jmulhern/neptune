@@ -11,10 +11,10 @@ class Window < Engine::Window
 
   def initialize
     super width: WIDTH, height: HEIGHT, caption: CAPTION
-    @background = Engine::Background.new(Assets.images(:background))
+    @background = Engine::Background.new(Assets.images(:background), min_width: WIDTH, min_height: HEIGHT, scale: 1.5)
   end
 
   def draw
-    @background.draw(min_width: WIDTH, min_height: HEIGHT, scale: 1.5)
+    @background.draw
   end
 end
