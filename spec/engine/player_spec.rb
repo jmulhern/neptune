@@ -39,6 +39,20 @@ RSpec.describe Engine::Player do
     end
   end
 
+  describe '#turn_left' do
+    it 'should decrement the angle' do
+      subject.turn_left
+      expect(subject.instance_variable_get(:@angle)).to eq(-1 * Engine::Player::TURN_FACTOR)
+    end
+  end
+
+  describe '#turn_right' do
+    it 'should increment the angle' do
+      subject.turn_right
+      expect(subject.instance_variable_get(:@angle)).to eq(Engine::Player::TURN_FACTOR)
+    end
+  end
+
   describe '#draw' do
     let(:image) { double('ship') }
     it 'should draw the player at the location' do

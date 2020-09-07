@@ -3,6 +3,7 @@
 require './lib/neptune/engine/window'
 require './lib/neptune/engine/background'
 require './lib/neptune/engine/player'
+require './lib/neptune/engine/input'
 require './lib/neptune/assets/images'
 
 class Window < Engine::Window
@@ -20,6 +21,11 @@ class Window < Engine::Window
     )
     @player = Engine::Player.new(Assets::Images::RED_SHIP)
     @player.warp(WIDTH / 2, HEIGHT / 2)
+  end
+
+  def update
+    @player.turn_left if Engine::Input.left?
+    @player.turn_right if Engine::Input.right?
   end
 
   def draw
