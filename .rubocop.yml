@@ -1,11 +1,14 @@
-Style/Documentation:
-  Enabled: false
-
 AllCops:
   NewCops: enable
   Exclude:
   - 'Gemfile'
   - 'Gemfile.lock'
+
+Style/Documentation:
+  Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: false
 
 Layout/LineLength:
   Exclude:

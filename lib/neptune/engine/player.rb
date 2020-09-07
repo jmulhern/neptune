@@ -12,5 +12,14 @@ module Engine
       @image = Gosu::Image.new(@asset.path)
       @location = Engine::Location.new
     end
+
+    def warp(x, y)
+      @location.x = x
+      @location.y = y
+    end
+
+    def draw
+      @image.draw_rot(@location.x, @location.y, 1, 0.0)
+    end
   end
 end

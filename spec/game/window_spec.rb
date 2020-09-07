@@ -19,11 +19,14 @@ RSpec.describe Window do
   end
 
   describe '#draw' do
+    let(:player) { double }
     let(:background) { double }
     before do
+      subject.instance_variable_set(:@player, player)
       subject.instance_variable_set(:@background, background)
     end
-    it 'should draw the background' do
+    it 'should draw the scene' do
+      expect(player).to receive(:draw)
       expect(background).to receive(:draw)
 
       subject.draw

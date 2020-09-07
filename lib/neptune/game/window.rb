@@ -16,12 +16,14 @@ class Window < Engine::Window
       Assets::Images::BACKGROUND,
       min_width: WIDTH,
       min_height: HEIGHT,
-      scale: 1.75
+      scale: 1.25
     )
     @player = Engine::Player.new(Assets::Images::RED_SHIP)
+    @player.warp(WIDTH / 2, HEIGHT / 2)
   end
 
   def draw
+    @player.draw
     @background.draw
   end
 end

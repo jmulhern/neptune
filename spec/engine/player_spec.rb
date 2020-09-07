@@ -30,4 +30,21 @@ RSpec.describe Engine::Player do
       expect(subject.location.y).to eq(0)
     end
   end
+
+  describe '#warp' do
+    it 'should update the players location' do
+      subject.warp(100, 200)
+      expect(subject.location.x).to eq(100)
+      expect(subject.location.y).to eq(200)
+    end
+  end
+
+  describe '#draw' do
+    let(:image) { double('ship') }
+    it 'should draw the player at the location' do
+      subject.instance_variable_set(:@image, image)
+      expect(image).to receive(:draw_rot).with(0.0, 0.0, 1, 0.0)
+      subject.draw
+    end
+  end
 end
