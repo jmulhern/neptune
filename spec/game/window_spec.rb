@@ -30,6 +30,7 @@ RSpec.describe Window do
       it 'should turn the player to the left' do
         expect(Engine::Input).to receive(:left?).and_return(true)
         expect(player).to receive(:turn_left)
+        expect(player).to receive(:move)
 
         subject.update
       end
@@ -39,6 +40,17 @@ RSpec.describe Window do
       it 'should turn the player to the right' do
         expect(Engine::Input).to receive(:right?).and_return(true)
         expect(player).to receive(:turn_right)
+        expect(player).to receive(:move)
+
+        subject.update
+      end
+    end
+
+    context 'when the up input is given' do
+      it 'should move the player forward' do
+        expect(Engine::Input).to receive(:up?).and_return(true)
+        expect(player).to receive(:forward)
+        expect(player).to receive(:move)
 
         subject.update
       end

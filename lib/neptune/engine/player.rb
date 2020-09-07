@@ -2,6 +2,7 @@
 
 require 'gosu'
 require './lib/neptune/engine/location'
+require './lib/neptune/engine/movement'
 
 module Engine
   class Player
@@ -13,6 +14,7 @@ module Engine
       @asset = asset
       @image = Gosu::Image.new(@asset.path)
       @location = Engine::Location.new
+      @movement = Engine::Movement.new
       @z_index = 1
       @angle = 0.0
     end
@@ -28,6 +30,18 @@ module Engine
 
     def turn_right
       @angle += TURN_FACTOR
+    end
+
+    def forward
+      @movement.accelerate(@angle)
+    end
+
+    def move(max_x = 0, max_y = 0)
+      @location.x += @movement.x
+      @location.y += @movement.y
+      @location.x %= max_x if max_x.positive?
+      @location.y %= max_y if max_y.positive?
+      @movement.decelerate
     end
 
     def draw

@@ -26,6 +26,8 @@ class Window < Engine::Window
   def update
     @player.turn_left if Engine::Input.left?
     @player.turn_right if Engine::Input.right?
+    @player.forward if Engine::Input.up?
+    @player.move(WIDTH, HEIGHT)
   end
 
   def draw

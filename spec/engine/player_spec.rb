@@ -53,6 +53,27 @@ RSpec.describe Engine::Player do
     end
   end
 
+  describe '#forward' do
+    it 'should accelerate' do
+      subject.instance_variable_set(:@angle, 4.5)
+      subject.forward
+      expect(subject.instance_variable_get(:@movement).x).not_to eq(0)
+      expect(subject.instance_variable_get(:@movement).y).not_to eq(0)
+    end
+  end
+
+  describe '#move' do
+    let(:movement) { double('movement', x: 100, y: 200) }
+    it 'should update the location based off movement' do
+      subject.instance_variable_set(:@movement, movement)
+      subject.instance_variable_set(:@angle, 4.5)
+      expect(movement).to receive(:decelerate)
+      subject.move
+      expect(subject.instance_variable_get(:@location).x).not_to eq(0)
+      expect(subject.instance_variable_get(:@location).y).not_to eq(0)
+    end
+  end
+
   describe '#draw' do
     let(:image) { double('ship') }
     it 'should draw the player at the location' do
