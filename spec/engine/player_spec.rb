@@ -24,5 +24,10 @@ RSpec.describe Engine::Player do
     it 'should set the image' do
       expect(subject.image).to eq(gosu_image)
     end
+
+    it 'should set the location' do
+      expect(subject.location.x).to eq(0)
+      expect(subject.location.y).to eq(0)
+    end
   end
 end

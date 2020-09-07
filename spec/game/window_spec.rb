@@ -9,6 +9,13 @@ RSpec.describe Window do
     it 'should create a window' do
       expect(subject).not_to be_nil
     end
+
+    it 'should create a background' do
+      expect(subject.instance_variable_get(:@background)).not_to be_nil
+    end
+    it 'should create a player' do
+      expect(subject.instance_variable_get(:@player)).not_to be_nil
+    end
   end
 
   describe '#draw' do
